@@ -1,0 +1,53 @@
+﻿@model IEnumerable<_28Mar.Models.Pessoa>
+
+@{
+    ViewBag.Title = "Oito";
+
+}
+
+
+
+
+<h1 class="bg-danger">@ViewBag.escola</h1>
+<h2>Curso @ViewData["curso"]</h2>
+<h2>Disciplina @TempData["disciplina"]</h2>
+
+<p>
+  
+
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+ 
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Turma)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Turma)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+
+               
+               
+            </td>
+        </tr>
+    }
+    
+</table>
